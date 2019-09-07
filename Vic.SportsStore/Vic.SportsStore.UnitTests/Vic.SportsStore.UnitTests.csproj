@@ -66,16 +66,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Vic.SportsStore.Domain\Vic.SportsStore.Domain.csproj">
       <Project>{ae518d8f-2bed-4879-b44e-47d3c247ea79}</Project>
       <Name>Vic.SportsStore.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Vic.SportsStore.WebApp\Vic.SportsStore.WebApp.vbproj">
-      <Project>{2fb98b1e-1631-4b93-87a8-57b187311162}</Project>
-      <Name>Vic.SportsStore.WebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
