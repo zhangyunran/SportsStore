@@ -27,7 +27,9 @@ namespace Vic.SportsStore.WebApp.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = ProductsRepository.Products.Count()
+                    TotalItems = category == null
+                    ? ProductsRepository.Products.Count()
+                    : ProductsRepository.Products.Where(e => e.Category == category).Count()
                 },
                 CurrentCategory = category
             };
