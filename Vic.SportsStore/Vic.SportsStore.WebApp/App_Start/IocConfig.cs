@@ -41,6 +41,10 @@ namespace Vic.SportsStore.WebApp
                 .RegisterInstance<EFDbContext>(new EFDbContext())
                 .PropertiesAutowired();
 
+            builder
+                .RegisterInstance<IOrderProcessor>(new EmailOrderProcessor(new EmailSettings()))
+                .PropertiesAutowired();
+
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
