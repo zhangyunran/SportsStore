@@ -19,13 +19,17 @@ namespace Vic.SportsStore.WebApp.Controllers
         public ViewResult Index()
         {
             return View(repository.Products);
-        }        public ViewResult Edit(int productId)
+        }
+
+        public ViewResult Edit(int productId)
         {
             Product product = repository
             .Products
             .FirstOrDefault(p => p.ProductId == productId);
             return View(product);
-        }        [HttpPost]
+        }
+
+        [HttpPost]
         public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
@@ -39,6 +43,12 @@ namespace Vic.SportsStore.WebApp.Controllers
                 // there is something wrong with the data values
                 return View(product);
             }
-        }
+        }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Product());
+        }
+
     }
 }
