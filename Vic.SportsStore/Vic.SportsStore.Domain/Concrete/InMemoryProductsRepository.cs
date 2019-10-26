@@ -8,7 +8,7 @@ using Vic.SportsStore.Domain.Entities;
 
 namespace Vic.SportsStore.Domain.Concrete
 {
-    public class InMemoryProductsRepository : IProductsRepository
+    public class InMemoryProductsRepository : EFProductRepository
     {
         public IEnumerable<Product> Products
         {
