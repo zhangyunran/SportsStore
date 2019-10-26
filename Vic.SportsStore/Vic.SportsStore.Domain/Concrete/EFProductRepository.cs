@@ -19,5 +19,25 @@ namespace Vic.SportsStore.Domain.Concrete
             }
         }
 
+        public void SaveProduct(Product product)
+        {
+            if (product.ProductId == 0)
+            {
+                Context.Products.Add(product);
+            }
+            else
+            {
+                Product dbEntry = Context.Products.Find(product.ProductId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = product.Name;
+                    dbEntry.Description = product.Description;
+                    dbEntry.Price = product.Price;
+                    dbEntry.Category = product.Category;
+                }
+            }
+            Context.SaveChanges();
+        }
+
     }
 }
